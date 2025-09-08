@@ -51,6 +51,7 @@ def get_retriever():
     docs = load_txt_files()
     # Thay OpenAIEmbeddings bằng HuggingFaceEmbeddings
     embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+
     return ensemble_retriever_from_docs(docs, embeddings=embeddings)
 
 
@@ -63,6 +64,7 @@ def get_chain():
         retriever,
         chat_memory=StreamlitChatMessageHistory(key="langchain_messages")
     )
+
     return chain
 
 
